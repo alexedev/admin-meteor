@@ -1,8 +1,8 @@
 Package.describe({
-  name: "yogiben:admin",
+  name: "buduguru:admin",
   summary: "A complete admin dashboard solution",
   version: "1.0.9",
-  git: "https://github.com/yogiben/meteor-admin"
+  git: "https://github.com/buduguru/meteor-admin"
 });
 
 Package.on_use(function(api){

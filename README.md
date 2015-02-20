@@ -1,9 +1,11 @@
 Meteor Admin
 ============
-`$ meteor add yogiben:admin`
+`$ meteor add buduguru:admin`
 
 This package is forked from `yogiben:admin`
+
 Differences are:
+
 - coffee -> vanilla js (TODO: convert readme snippets too)
 - TODO: Update template to 2.1
 - TODO: Integrate with `meteor-webix`

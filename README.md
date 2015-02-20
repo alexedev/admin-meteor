@@ -2,6 +2,12 @@ Meteor Admin
 ============
 `$ meteor add yogiben:admin`
 
+This package is forked from `yogiben:admin`
+Differences are:
+- coffee -> vanilla js (TODO: convert readme snippets too)
+- TODO: Update template to 2.1
+- TODO: Integrate with `meteor-webix`
+
 To get a working example, clone and run my [Meteor starter](https://github.com/yogiben/meteor-starter) repo and then go to `/admin`.
 
 A complete admin dashboard solution for meteor built off the [iron-router](https://github.com/EventedMind/iron-router),  [roles](https://github.com/alanning/meteor-roles/) and [autoform](https://github.com/aldeed/meteor-autoform) packages and frontend from the open source admin dashboard template, [Admin LTE](https://github.com/almasaeed2010/AdminLTE).
@@ -29,7 +35,7 @@ Download to your packages directory and run `meteor add yogiben:admin` then go t
 The simplest possible config with one, 'Posts', collection.
 #####Both#####
 ```
-@AdminConfig = {
+AdminConfig = {
   collections: {
     Posts: {}
   }
@@ -39,9 +45,9 @@ This config will make the **first user** admin.
 
 You can also set the adminEmails property which will will override this.
 ```
-@AdminConfig = {
-  name: 'My App'
-  adminEmails: ['ben@code2create.com']
+AdminConfig = {
+  name: 'My App',
+  adminEmails: ['ben@code2create.com'],
   collections: {
     Posts: {}
   }
@@ -52,37 +58,52 @@ If you are unfamiliar with [autoform](https://github.com/aldeed/meteor-autoform)
 
 You need to define and attach a schema to the collections that you want to edit via the admin dashboard. Check out the [documentation](https://github.com/aldeed/meteor-collection2).
 ```
-@Schemas = {}
+Schemas = {};
 
-@Posts = new Meteor.Collection('posts');
+Posts = new Meteor.Collection('posts');
 
-Schemas.Posts = new SimpleSchema
-	title:
-		type: String
-		max: 60
-	content:
-		type: String
-		autoform:
-			rows: 5
-	createdAt: 
-		type: Date
-		label: 'Date'
-		autoValue: ->
-			if this.isInsert
-				return new Date()
-	owner: 
-		type: String
-		regEx: SimpleSchema.RegEx.Id
-		autoValue: ->
-			if this.isInsert
-				return Meteor.userId()
-		autoform:
-			options: ->
-				_.map Meteor.users.find().fetch(), (user)->
-					label: user.emails[0].address
-					value: user._id
+Schemas.Posts = new SimpleSchema({
+  title: {
+    type: String,
+    max: 60
+  },
+  content: {
+    type: String,
+    autoform: {
+      rows: 5
+    }
+  },
+  createdAt: {
+    type: Date,
+    label: 'Date',
+    autoValue: function() {
+      if (this.isInsert) {
+        return new Date();
+      }
+    }
+  },
+  owner: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id,
+    autoValue: function() {
+      if (this.isInsert) {
+        return Meteor.userId();
+      }
+    },
+    autoform: {
+      options: function() {
+        return _.map(Meteor.users.find().fetch(), function(user) {
+          return {
+            label: user.emails[0].address,
+            value: user._id
+          };
+        });
+      }
+    }
+  }
+});
 
-Posts.attachSchema(Schemas.Posts)
+Posts.attachSchema(Schemas.Posts);
 ```
 #### 4. Enjoy ####
 Go to `/admin`. If you are not made an admin, re-read step 2.
@@ -120,23 +141,23 @@ The admin dashboard is heavily customisable. Most of the possibilities are repre
             ]
             showWidget: false
         }
-    autoForm: 
-        omitFields: ['createdAt', 'updatedAt']
-    dashboard:
-        homeUrl: '/dashboard'
-        widgets: [
-          {
-            template: 'adminCollectionWidget'
-            data:
-              collection: 'Posts'
-              class: 'col-lg-3 col-xs-6'
-          }
-          {
-            template: 'adminUserWidget'
-            data:
-              class: 'col-lg-3 col-xs-6'
-          }
-        ]
+	    autoForm: 
+	        omitFields: ['createdAt', 'updatedAt']
+	    dashboard:
+	        homeUrl: '/dashboard'
+	        widgets: [
+	          {
+	            template: 'adminCollectionWidget'
+	            data:
+	              collection: 'Posts'
+	              class: 'col-lg-3 col-xs-6'
+	          }
+	          {
+	            template: 'adminUserWidget'
+	            data:
+	              class: 'col-lg-3 col-xs-6'
+	          }
+	        ]
 
 Comments.helpers({
   postTitle: function () {
@@ -150,25 +171,34 @@ Comments.helpers({
 #### Collections ####
 `AdminConfig.collections` tells the dashboard which collections to manage based on the global variable name.
 ```
-@AdminConfig =
-  collections:
+AdminConfig = {
+  collections: {
     Posts: {},
     Comments: {}
   }
+};
 ```
 It is possible to configure the way the collection is managed.
 ```
 Comments: {
-            icon: 'comment'
-            omitFields: ['updatedAt']
-            tableColumns: [
-              {label: 'Content', name: 'content'}
-              {label: 'Post', name: 'postTitle()'}
-              {label: 'User', name: 'owner', template: 'userEmail'}
-            ]
-            showWidget: false
-            color: 'red'
-        }
+    icon: 'comment',
+    omitFields: ['updatedAt'],
+    tableColumns: [
+      {
+        label: 'Content',
+        name: 'content'
+      }, {
+        label: 'Post',
+        name: 'postTitle()'
+      }, {
+        label: 'User',
+        name: 'owner',
+        template: 'userEmail'
+      }
+    ],
+    showWidget: false,
+    color: 'red'
+  }
 ```
 `icon` is the icon code from [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/).
 
@@ -179,7 +209,7 @@ Comments: {
 * `{label: 'Joined', name: 'createdAt', template: 'prettyDate'}` will display `createdAt` field using `prettyDate` template. Following object will be set as the context:
 ```
 {
-  value: // current cell value
+  value: // current cell value ,
   doc:   // current document
 }
 ```

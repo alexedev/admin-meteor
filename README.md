@@ -10,7 +10,7 @@ Differences are:
 - TODO: Update template to 2.1
 - TODO: Integrate with `meteor-webix`
 
-To get a working example, clone and run my [Meteor starter](https://github.com/yogiben/meteor-starter) repo and then go to `/admin`.
+To get a working example, clone and run `yogiben`'s [Meteor starter](https://github.com/yogiben/meteor-starter) repo and then go to `/admin`.
 
 A complete admin dashboard solution for meteor built off the [iron-router](https://github.com/EventedMind/iron-router),  [roles](https://github.com/alanning/meteor-roles/) and [autoform](https://github.com/aldeed/meteor-autoform) packages and frontend from the open source admin dashboard template, [Admin LTE](https://github.com/almasaeed2010/AdminLTE).
 
@@ -31,7 +31,7 @@ This package is designed to work with certain types of projects. Your project sh
 * Fontawesome - e.g. `meteor add fortawesome:fontawesome`
 
 #### 1. Install ####
-Download to your packages directory and run `meteor add yogiben:admin` then go to `/admin` for the setup wizzard.
+Download to your packages directory and run `meteor add buduguru:admin` then go to `/admin` for the setup wizzard.
 
 #### 2. Config ####
 The simplest possible config with one, 'Posts', collection.

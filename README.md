@@ -2,7 +2,7 @@ Meteor Admin
 ============
 `$ meteor add buduguru:admin`
 
-This package is forked from `yogiben:admin`
+This package is forked from `yogiben:admin` and not recommended to use in production, at least for now.
 
 Differences are:
 

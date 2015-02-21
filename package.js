@@ -1,7 +1,7 @@
 Package.describe({
   name: "buduguru:admin",
   summary: "A complete admin dashboard solution",
-  version: "1.1.3",
+  version: "1.1.4",
   git: "https://github.com/buduguru/meteor-admin-stable"
 });
 

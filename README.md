@@ -8,7 +8,8 @@ Differences are:
 		
 - coffee -> vanilla js (TODO: convert readme snippets too)		
 - AdminLTE template is updated from 1.2 to 2.1 (TODO: update screenshots in README)		
-- TODO: Integrate with `meteor-webix`		
+- TODO: Integrate with `webix:webix`
+- TODO: Integrate with `tap:i18n`
 
 Screenshots below are outdated, check AdminLTE template demo [here](http://almsaeedstudio.com/themes/AdminLTE/) 
 

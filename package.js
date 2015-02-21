@@ -1,7 +1,7 @@
 Package.describe({
   name: "buduguru:admin",
   summary: "A complete admin dashboard solution",
-  version: "1.0.9",
+  version: "1.1.0",
   git: "https://github.com/buduguru/meteor-admin"
 });
 
@@ -13,7 +13,6 @@ Package.on_use(function(api){
 
   api.use(
     ['iron:router@1.0.7',
-    'coffeescript',
     'underscore',
     'aldeed:collection2@2.3.2',
     'aldeed:autoform@4.2.2',
@@ -45,8 +44,8 @@ Package.on_use(function(api){
     'lib/client/html/admin_layouts.html',
     'lib/client/html/admin_sidebar.html',
     'lib/client/html/admin_header.html',
-    'lib/client/css/admin-layout.less',
-    'lib/client/css/admin-custom.less',
+      'lib/client/css/admin-custom.less',
+    'lib/client/css/less/AdminLTE.less',
     'lib/client/js/admin_layout.js',
     'lib/client/js/helpers.js',
     'lib/client/js/templates.js',
@@ -59,9 +58,5 @@ Package.on_use(function(api){
     'lib/server/publish.js',
     'lib/server/methods.js'
     ], 'server');
-
-
-
-  api.export('AdminDashboard',both)
 
 });

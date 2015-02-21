@@ -3,17 +3,17 @@
 {{#if AdminConfig}}
  {{#if isInRole 'admin'}}
 	<div class="admin-layout">
-		<div class="skin-{{adminGetSkin}}">
+		<div class="skin-{{adminGetSkin}} fixed">
+            <div class="wrapper row-offcanvas row-offcanvas-left">
 			{{> AdminHeader}}
-			<div class="wrapper row-offcanvas row-offcanvas-left">
+
 				{{> AdminSidebar }}
-				<aside class="right-side">
+				<aside class="content-wrapper">
 					<section class="content-header">
 						<h1>
 							{{$.Session.get 'admin_title'}}
 							<small>{{$.Session.get 'admin_subtitle'}}</small>
 						</h1>
-						<div class="header-right">
 							<ol class="breadcrumb">
 								<li><a href="/admin/">Dashboard</a></li>
 								{{#if $.Session.get 'admin_collection'}}
@@ -33,7 +33,7 @@
 							{{#if $.Session.get 'admin_collection_name'}}
 							<a href="{{pathFor 'adminDashboardNew' collection=admin_collection_name}}" class="new-document"><i class="fa fa-plus"></i></a>
 							{{/if}}
-						</div>
+
 					</section>
 					<section class="content">
 						{{> yield }}

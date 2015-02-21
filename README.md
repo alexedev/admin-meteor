@@ -1,10 +1,19 @@
 Meteor Admin
 ============
-`$ meteor add yogiben:admin`
+`$ meteor add buduguru:admin`
+ 		 
+This is a fork of `yogiben:admin` with some improvements.	
+		
+Differences are:		
+		
+- coffee -> vanilla js (TODO: convert readme snippets too)		
+- AdminLTE template is updated from 1.2 to 2.1 (TODO: update screenshots in README)		
+- TODO: Integrate with `meteor-webix`		
 
-To get a working example, clone and run my [Meteor starter](https://github.com/yogiben/meteor-starter) repo and then go to `/admin`.
+Screenshots below are outdated, check AdminLTE template demo [here](http://almsaeedstudio.com/themes/AdminLTE/) 
 
 A complete admin dashboard solution for meteor built off the [iron-router](https://github.com/EventedMind/iron-router),  [roles](https://github.com/alanning/meteor-roles/) and [autoform](https://github.com/aldeed/meteor-autoform) packages and frontend from the open source admin dashboard template, [Admin LTE](https://github.com/almasaeed2010/AdminLTE).
+
 
 **Feedback Welcome.** Please create an issue.
 
@@ -23,13 +32,13 @@ This package is designed to work with certain types of projects. Your project sh
 * Fontawesome - e.g. `meteor add fortawesome:fontawesome`
 
 #### 1. Install ####
-Download to your packages directory and run `meteor add yogiben:admin` then go to `/admin` for the setup wizzard.
+CD to your app directory and run `meteor add yogiben:admin` then go to `/admin` for the setup wizzard.
 
 #### 2. Config ####
 The simplest possible config with one, 'Posts', collection.
 #####Both#####
 ```
-@AdminConfig = {
+AdminConfig = {
   collections: {
     Posts: {}
   }
@@ -39,9 +48,9 @@ This config will make the **first user** admin.
 
 You can also set the adminEmails property which will will override this.
 ```
-@AdminConfig = {
-  name: 'My App'
-  adminEmails: ['ben@code2create.com']
+AdminConfig = {
+  name: 'My App',
+  adminEmails: ['name@example.com'],
   collections: {
     Posts: {}
   }
